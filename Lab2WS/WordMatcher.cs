@@ -36,8 +36,8 @@ namespace Lab2WS
                                             Array.Sort(wordArray);
 
                                     String scrambledWordSorted=scrambledArray.ToString();
-                                   String  wordWordSorted = wordArray.ToString();
-
+                                   string  wordWordSorted = wordArray.ToString();
+                        //new string ?
                         if (scrambledWordSorted.Equals(wordWordSorted))
                         {
 

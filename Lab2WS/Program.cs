@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+
 
 namespace Lab2WS
 {
@@ -57,9 +57,13 @@ namespace Lab2WS
             // 1 get the user's input - comma separated string containing scrambled words
             // 2 Extract the words into a string (red,blue,green) 
             // 3 Call the DisplayMatchedUnscrambledWords method passing the scrambled words string array
+            Console.WriteLine("Hey bro, enter words separated by commas");
+            string inputManual = Console.ReadLine();
 
-            string input = Console.ReadLine();
-            
+
+
+            string[] scrambledInput = inputManual.Split(',');
+            DisplayMatchedScrambledWords(scrambledInput);
 
 
 
@@ -78,7 +82,7 @@ namespace Lab2WS
             //            if empty - display no words found message.
             //            if NOT empty - Display the matches.... use "foreach" with the list (matchedWords)
 
-                        if (matchedWords== null)
+                        if (matchedWords==null)
 
                         {
                             Console.WriteLine("ERROR! No words found");
@@ -92,7 +96,7 @@ namespace Lab2WS
                     
                     
                     
-                    String displayFound = String.Format("MATCH FOUND IS FOR{0}{1}", scrambledWords, wordList);
+                    String displayFound = String.Format("Match found for: {0}{1}", scrambledWords, wordList);
                  }
             }
         }
