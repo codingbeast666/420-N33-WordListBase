@@ -27,13 +27,32 @@ namespace Lab2WS
                         //convert sorted character arrays into strings (toString)
                         // 
                         //compare the two sorted strings. If they match, build the MatchWord
-                        //struct and add to matchedWords list.
+                        
+
+                                    char[] scrambledArray = scrambledWord.ToCharArray();
+                                    char[] wordArray = word.ToCharArray();
+
+                                            Array.Sort(scrambledArray);
+                                            Array.Sort(wordArray);
+
+                                    String scrambledWordSorted=scrambledArray.ToString();
+                                   String  wordWordSorted = wordArray.ToString();
+
+                        if (scrambledWordSorted.Equals(wordWordSorted))
+                        {
+
+                            //struct and add to matchedWords list.
+                            matchedWords.Add(new MatchedWord() { ScrambledWord = scrambledWord, Word = word });
+
+                        }
+
+
                     }
 
                 }
             }
 
-            return null;
+            return matchedWords;
         }
 
         MatchedWord BuildMatchedWord(string scrambledWord, string word)
