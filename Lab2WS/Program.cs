@@ -20,7 +20,7 @@ namespace Lab2WS
 
                 {
 
-                 
+        
 
                     while (check1 == false)
                     {
@@ -34,7 +34,7 @@ namespace Lab2WS
 
                                     //reads case that user inputs
                             string myCase = Console.ReadLine();
-
+                                check2 = false;
                                          //checks so case isn't null
                                     while (myCase==null)
                                         {
@@ -67,17 +67,27 @@ namespace Lab2WS
                                     break;
 
                             }
-                    //second check kicks in 
-                    if (check1 == true)
-                            {
+                            //second check kicks in 
+                            if (check1 == true)
+                                    {
 
                                     Console.WriteLine(Constants.askToContinue);
 
                       
                                 while (check2 == false)
                                         {
-                            string myCase2 = Console.ReadLine();
-                                            switch (myCase2.ToUpper())
+                                        string myCase2 = Console.ReadLine();
+
+
+                                while (myCase2 == null)
+                                {
+                                    Console.WriteLine(Constants.noEnteredOption);
+                                    Console.WriteLine(Constants.askInput);
+                                    myCase2 = Console.ReadLine();
+
+                                }
+
+                            switch (myCase2.ToUpper())
 
                                     {
                                         case "Y":
@@ -93,19 +103,14 @@ namespace Lab2WS
 
                                             break;
 
-                                        default:
-
-                                            Console.WriteLine(Constants.wrongCharacter);
-
-                                            break;
-
+                                      
+                                      
                                     }
 
                                 }
 
                             }
                             
-                                             Console.ReadKey();
 
 
 
