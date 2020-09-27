@@ -29,7 +29,7 @@ namespace Lab2WS
 
                         {
 
-                            Console.WriteLine("ENTER SCRAMBLED WORDS MANUALLY OR ENTER FILE NAME :  F FOR file, M FOR manual");
+                            Console.WriteLine(Constants.askInput);
 
 
                                     //reads case that user inputs
@@ -38,8 +38,8 @@ namespace Lab2WS
                                          //checks so case isn't null
                                     while (myCase==null)
                                         {
-                                            Console.WriteLine("You have not entered an option , please retype ");
-                                            Console.WriteLine("ENTER SCRAMBLED WORDS MANUALLY OR ENTER FILE NAME :  F FOR file, M FOR manual");
+                                            Console.WriteLine(Constants.noEnteredOption);
+                                            Console.WriteLine(Constants.askInput);
                                             myCase =Console.ReadLine();
 
                                         }
@@ -52,7 +52,7 @@ namespace Lab2WS
 
                                 case "F":
 
-                                    Console.WriteLine("ENTER FILENAME + EXTENSION");
+                                    Console.WriteLine(Constants.enterFileName);
                                     ExecuteScrambledWordsInFileScenario();
 
                                     check1 = true;
@@ -60,7 +60,7 @@ namespace Lab2WS
 
                                 case "M":
 
-                                    Console.WriteLine("ENTER WORDS NEEDED -  SEPARATE WITH COMMAS");
+                                    Console.WriteLine(Constants.manualWordEntry);
                                     ExecuteScrambledWordsManualEntryScenario();
 
                                     check1 = true;
@@ -71,17 +71,17 @@ namespace Lab2WS
                     if (check1 == true)
                             {
 
-                                Console.WriteLine("CONTINUE? Y/N");
+                                    Console.WriteLine(Constants.askToContinue);
 
-                        string myCase2 = Console.ReadLine();
                       
-                            while (check2 == false)
-                                    {
-                                        switch (myCase2.ToUpper())
+                                while (check2 == false)
+                                        {
+                            string myCase2 = Console.ReadLine();
+                                            switch (myCase2.ToUpper())
 
                                     {
                                         case "Y":
-
+                                    //allows loop (first while loop) to re-iterate
                                             check1 = false;
                                             check2 = true;
 
@@ -95,7 +95,7 @@ namespace Lab2WS
 
                                         default:
 
-                                            Console.WriteLine("WRONG CHARACTER ENTRY TYPE :  Y OR N");
+                                            Console.WriteLine(Constants.wrongCharacter);
 
                                             break;
 
@@ -110,12 +110,12 @@ namespace Lab2WS
 
 
                         }
-
+                //exception handling
                         catch (Exception e)
 
                         {
 
-                            Console.WriteLine("Sorry an error has occurred.. " + e.Message);
+                            Console.WriteLine(Constants.errorOccured + e.Message);
 
                         }
 
@@ -163,7 +163,7 @@ namespace Lab2WS
 
                 {
 
-                    string[] wordList = fileReader.Read(@"wordlist.txt"); 
+                    string[] wordList = fileReader.Read(@Constants.fileName); 
 
 
 
@@ -173,7 +173,7 @@ namespace Lab2WS
 
                     {
 
-                        Console.WriteLine("no words found");
+                        Console.WriteLine(Constants.noWordsError);
                     }
 
                     else if(!(matchedWords == null))
@@ -186,7 +186,7 @@ namespace Lab2WS
                     // String formattingWord= String.Format("MATCH FOUND FOR{0}{1}", s.scrambledWords, wordList);
                    /*String scrambledWordsFormatted = s.ScrambledWord;
                     String wordWordFormatted = s.Word;*/
-                            Console.WriteLine("Match found for " + s.ScrambledWord +" "+ s.Word);
+                            Console.WriteLine(Constants.matchFound + s.ScrambledWord +" "+ s.Word);
                            
                             // Console.WriteLine(formattingWord);
                         }
